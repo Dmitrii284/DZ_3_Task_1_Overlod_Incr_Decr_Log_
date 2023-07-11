@@ -30,12 +30,36 @@ void Overcoat::Print()
 	std::cout <<"____________________________\n";
 }
 
+bool Overcoat::operator==(const Overcoat&) const
+{
+	return false;
+}
+//Операция присваивания
+bool Overcoat::operator=( Overcoat& p1) 
+{
+	int tmp = 0;
+	if (p1._type != this->_type)
+		this->_type = p1._type;		
+	return (this);
+}
+
+bool Overcoat::operator>( const Overcoat& p1) const
+{
+	if (this->_price > p1._price)
+		return (this);			
+}
+
+bool Overcoat:: operator != (const Overcoat& p1) const
+{
+	return !(*this == p1);
+}
+
+
+
 Overcoat::~Overcoat()
 {
 	delete[]_type;
 	delete[]_obj;
 	delete[]_country;
 }
-
-
 

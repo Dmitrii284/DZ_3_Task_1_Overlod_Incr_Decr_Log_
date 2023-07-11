@@ -34,17 +34,22 @@ private:
 	const char* _type = nullptr;// Верхняя, Повседневная, Домашняя 
 	const char* _obj = nullptr;// Брюки или халат или пальто
 	const char* _country = nullptr;// Страна производитель
-	float _price = -1;// Стоимость по прайсу 
+	float _price = 0;// Стоимость по прайсу 
 public:
 	Overcoat(const char* type, const char* obj, const char* country, float price);
 	Overcoat(const char* type);
 	Overcoat(const char* type, const char* obj);
 	Overcoat(const char* type, const char* obj, const char* country);
 	Overcoat(const Overcoat& overcoat);
-	void Print();
 	~Overcoat();
-
-
+	void Print();	
+	
+	const Overcoat& operator=(const Overcoat&);
+	bool operator == (const Overcoat&) const; //Операция Сравнения 
+	bool operator != (const Overcoat& p1) const; //Операция Неравенства.
+	bool operator = ( Overcoat& p1); //Операция присваивания
+	bool operator>(const Overcoat& p1) const; //Операция > перегрузки знака >
+	
 };
 
 #endif // !SOURSE_H;
