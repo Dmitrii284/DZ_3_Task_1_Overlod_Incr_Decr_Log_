@@ -1,14 +1,17 @@
-﻿#include "Sourse.h"
+﻿#include"Sourse.h"
 
-Overcoat::Overcoat(const char* type, const char* obj, const char* country, uint16_t price) :_price{price}
+Overcoat::Overcoat(const char* type, const char* obj, const char* country, float price) :_price{price}
 { 
-	_type = new char[strlen(type)];	
-	_obj = new char[strlen(obj)];	
-	_country = new char[strlen(country)];	
+	_type = new char[strlen(type)];
+	_type = type;
+	_obj = new char[strlen(obj)];
+	_obj = obj;
+	_country = new char[strlen(country)];
+	_country = country;
 }
-Overcoat::Overcoat(const char* type) : Overcoat(type) { }
-Overcoat::Overcoat(const char* type, const char* obj) : Overcoat(type, obj) { }
-Overcoat::Overcoat(const char* type, const char* obj, const char* country) : Overcoat(type, obj, country) { }
+Overcoat::Overcoat(const char* type) : Overcoat(type,0,0,0) { }
+Overcoat::Overcoat(const char* type, const char* obj) : Overcoat(type, obj,0,0) { }
+Overcoat::Overcoat(const char* type, const char* obj, const char* country) : Overcoat(type, obj, country, 0) { }
 
 Overcoat::Overcoat(const Overcoat& overcoat)
 {
@@ -20,10 +23,11 @@ Overcoat::Overcoat(const Overcoat& overcoat)
 
 void Overcoat::Print()
 {
-	std::cout << "Type: "<< _type <<'\n';
-	std::cout << "Object: "<< _obj <<'\n';
-	std::cout << "Country: "<< _country <<'\n';
-	std::cout << "Price: "<< _price <<'\n';
+	std::cout <<"Type:"<< _type <<'\n';
+	std::cout <<"Object:"<< _obj <<'\n';
+	std::cout <<"Country:"<< _country <<'\n';
+	std::cout <<"Price:"<< _price <<'\n';
+	std::cout <<"____________________________\n";
 }
 
 Overcoat::~Overcoat()
